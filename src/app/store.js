@@ -1,3 +1,5 @@
 import { createStore, combineReducers } from 'redux';
-import appRreducer from './reducers/appReducer'
-export default createStore(combineReducers({ appRreducer }), {});
+import usersReducer from './modules/reducers/userReducer';
+import optionReducer from './modules/reducers/optionReducer';
+
+export default createStore(combineReducers({ usersReducer, optionReducer }), {});

@@ -1,8 +1,8 @@
 import userTypes from '../types/user';
 
 export default {
-  getUserData: ({ user }) =>({
+  getUserData: (users) =>({
     type: userTypes.USER_DATA,
-    user,
+    users,
   }), 
 };

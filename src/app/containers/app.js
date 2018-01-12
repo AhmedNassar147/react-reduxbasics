@@ -2,40 +2,74 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import Main from '../components/main';
-import Side from '../components/side';
-import userAction from '../actions/user';
+import Right from '../components/right';
+import Left from '../components/left';
+import Middle from '../components/middle';
+import userAction from '../modules/actions/user';
+import optionsAction from '../modules/actions/options';
+import { options, users } from './data';
+import { childStyle, containerStyle  } from './styles';
 
 class App extends React.Component{
   componentWillMount(){
-    this.props.onPageLoad();
+    this.props.onPageLoad(users);
+  };
+  
+  componentDidMount(){
+    setTimeout(() =>{
+      this.props.getOptions(options);
+    },2000);
   }
+
   render(){
-    console.log(this.props.appReducer.user);
+    const { users, options, load } = this.props;
+
+    if (load) return <div>loading....</div>
     return(
-      <div>
-        <Main />
-        <Side />       
+      <div style={containerStyle}>
+        
+        <div style={childStyle}>
+          <Left users={users} />            
+        </div>
+
+        <div style={childStyle}>
+          <Middle options={options} />       
+        </div>
+        
+        <div style={childStyle}>
+          <Right />       
+        </div>
+      
       </div>
     );
   }
 };
 
+
 App.proptypes = {
-  onPageLoad: PropTypes.func
+  onPageLoad: PropTypes.func,
+  users: PropTypes.objectOf(PropTypes.array),
+  getOptions: PropTypes.func,
+  options: PropTypes.objectOf(PropTypes.array),
+  load: PropTypes.bool,
 };
 
  const mapStateToProps = (state) => {
   return {
-    user: state.appReducer
+    users: state.usersReducer.usersData,
+    options: state.optionReducer.options,
+    load: state.optionReducer.load,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onPageLoad: () => {
-      dispatch(userAction.getUserData())
-    }
+    onPageLoad: (users) => {
+      dispatch(userAction.getUserData(users))
+    },
+    getOptions: (options) => {
+      dispatch(optionsAction.getOptionsload(options))
+    },
   }
 }
 
