@@ -1,20 +1,11 @@
 import React from 'react';
 import { render } from 'react-dom';
-import Main from './components/main/main';
-import Side from './components/sidebar/side';
-
-class App extends React.Component{
-  render(){
-    return(
-      <div>
-        <Main />
-        <Side />       
-      </div>
-    );
-  }
-}
+import { Provider } from 'react-redux';
+import App from './containers/app';
+import store from './store';
 
 render(
-  <App />,
-  document.getElementById("app")
-);
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  window.document.getElementById("app"));
