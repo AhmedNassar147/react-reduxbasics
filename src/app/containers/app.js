@@ -22,9 +22,18 @@ class App extends React.Component{
   }
 
   render(){
-    const { users, options, load } = this.props;
+    const {
+      users,
+      options,
+      load,
+      selectOption,
+      selectedOption,
+      resetData,
+      optionId
+    } = this.props;
 
     if (load) return <div>loading....</div>
+
     return(
       <div style={containerStyle}>
         
@@ -33,7 +42,13 @@ class App extends React.Component{
         </div>
 
         <div style={childStyle}>
-          <Middle options={options} />       
+          <Middle
+            options={options}
+            selectOption={selectOption}
+            selectedOption={selectedOption}
+            resetData={resetData}
+            optionId={optionId}
+          />
         </div>
         
         <div style={childStyle}>
@@ -45,13 +60,16 @@ class App extends React.Component{
   }
 };
 
-
 App.proptypes = {
   onPageLoad: PropTypes.func,
   users: PropTypes.objectOf(PropTypes.array),
   getOptions: PropTypes.func,
   options: PropTypes.objectOf(PropTypes.array),
   load: PropTypes.bool,
+  selectOption: PropTypes.func,
+  selectedOption: PropTypes.string,
+  resetData: PropTypes.func,
+  optionId: PropTypes.number,
 };
 
  const mapStateToProps = (state) => {
@@ -59,6 +77,8 @@ App.proptypes = {
     users: state.usersReducer.usersData,
     options: state.optionReducer.options,
     load: state.optionReducer.load,
+    selectedOption: state.optionReducer.selectedOption,
+    optionId: state.optionReducer.optionId,
   }
 }
 
@@ -69,6 +89,12 @@ const mapDispatchToProps = (dispatch) => {
     },
     getOptions: (options) => {
       dispatch(optionsAction.getOptionsload(options))
+    },
+    selectOption: (optionValue) => {
+      dispatch(optionsAction.selectOption(optionValue))
+    },
+    resetData: () =>{
+      dispatch(optionsAction.resetData())
     },
   }
 }

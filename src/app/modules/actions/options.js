@@ -5,4 +5,11 @@ export default {
     type: optionTypes.ON_PAGE_LOADING,
     options,
   }),
+  selectOption:(optionValue) => ({
+    type: optionTypes.SELECT_OPTION,
+    optionValue,
+  }),
+  resetData:() => ({
+    type: optionTypes.RESET_DATA,
+  }),
 };

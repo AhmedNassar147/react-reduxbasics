@@ -7,6 +7,7 @@ export const users = [
 ];
 
 export const options = [
+  {id: 0, label: "default option"},
   {id: 1, label: "option1"},
   {id: 2, label: "option2"},
   {id: 3, label: "option3"},
