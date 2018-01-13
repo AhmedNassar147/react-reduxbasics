@@ -6,6 +6,8 @@ export default class Right extends React.Component{
     return(
       <div>
         <h2>right</h2>
+        <input type="datetime" />
+        <input type="datetime-local" />
       </div>
     );
   }
