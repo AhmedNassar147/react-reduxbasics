@@ -1,8 +1,6 @@
 export const containerStyle = {
-  display: 'flex',
+  width: '100%',
+  textAlign: 'center',
+  alignContent: 'center',
 };
-export const childStyle = {
-  flex: 1,
-  border: '2px solid grey',
-  margin: '2px',
-};
+

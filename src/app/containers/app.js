@@ -8,7 +8,7 @@ import Middle from '../components/middle';
 import userAction from '../modules/actions/user';
 import optionsAction from '../modules/actions/options';
 import { options, users } from './data';
-import { childStyle, containerStyle  } from './styles';
+import { containerStyle } from './styles';
 
 class App extends React.Component{
   componentWillMount(){
@@ -36,24 +36,18 @@ class App extends React.Component{
 
     return(
       <div style={containerStyle}>
-        
-        <div style={childStyle}>
-          <Left users={users} />            
-        </div>
+       
+        <Left users={users} />            
 
-        <div style={childStyle}>
-          <Middle
-            options={options}
-            selectOption={selectOption}
-            selectedOption={selectedOption}
-            resetData={resetData}
-            optionId={optionId}
-          />
-        </div>
-        
-        <div style={childStyle}>
-          <Right />       
-        </div>
+        <Middle
+          options={options}
+          selectOption={selectOption}
+          selectedOption={selectedOption}
+          resetData={resetData}
+          optionId={optionId}
+        />
+      
+        <Right />       
       
       </div>
     );

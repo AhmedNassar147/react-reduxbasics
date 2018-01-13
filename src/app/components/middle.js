@@ -1,37 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { header, cmpStyle, middleElements } from './styles';
+import {dropDownStyle, header, compStyle } from './styles';
+import { DropDownMenu, MenuItem, RaisedButton, TextField, Paper } from 'material-ui';
 
 export default class Middle extends React.Component{
-  handleSelectOptionChange = (event) => {
-    const value = event.target.value;
+  handleSelectOptionChange = (event, index, value) => {
     this.props.selectOption(value);
   }
 
   render(){
     const { options, selectedOption, resetData, optionId } = this.props;
     return(
-      <div style={cmpStyle}>
+      <Paper style={compStyle}>
         <h2 style={header}>React test 2</h2>
-        <select value={optionId} onChange={this.handleSelectOptionChange} style={middleElements}>
+        <DropDownMenu value={optionId} onChange={this.handleSelectOptionChange} autoWidth={false} style={dropDownStyle} >
           {options.map((option) => (
-            <option value={option.id} key={option.id}>{option.label}</option>
+            <MenuItem 
+              value={option.id}
+              key={option.id}
+              label={option.label}
+              primaryText={option.label}
+            />
           ))}
-        </select>
-        <input 
+        </DropDownMenu>
+        <br />
+        <TextField 
+          hintText="just choose option"
           type="text"
-          style={middleElements}
+          style={{ width: '90%' }}
           value={selectedOption === "default option" ? '' : selectedOption }
           onChange={this.handleInputChange}
         />
-        <button 
+        <br />
+        <RaisedButton
           type="submit"
-          style={middleElements}
           onClick={resetData}
-        >
-        reset
-        </button>
-      </div>
+          secondary
+          fullWidth
+          label="reset"
+        />
+      </Paper>
     );
   }
 }

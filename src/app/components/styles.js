@@ -1,13 +1,14 @@
-export const cmpStyle = {
-  margin: '0px 5px'
-  };
-  
-export const header = {
-    textAlign: 'center',
-    backgroundColor: 'grey',
-  };
-
-export const middleElements = {
- width: '50%',
- marginBottom: '4px',
+export const compStyle = {
+  maxWidth: '90%',
+  margin: 'auto',
+  textAlign: 'center',
 }
+
+export const header = {
+  textAlign: 'center',
+  backgroundColor: 'grey',
+};
+
+export const dropDownStyle = {
+  width: '100%',
+};
