@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {dropDownStyle, header, compStyle } from './styles';
+import { header, compStyle } from './styles';
 import { DropDownMenu, MenuItem, RaisedButton, TextField, Paper } from 'material-ui';
 
 export default class Middle extends React.Component{
@@ -13,7 +13,7 @@ export default class Middle extends React.Component{
     return(
       <Paper style={compStyle}>
         <h2 style={header}>React test 2</h2>
-        <DropDownMenu value={optionId} onChange={this.handleSelectOptionChange} autoWidth={false} style={dropDownStyle} >
+        <DropDownMenu value={optionId} onChange={this.handleSelectOptionChange} autoWidth >
           {options.map((option) => (
             <MenuItem 
               value={option.id}
@@ -27,7 +27,6 @@ export default class Middle extends React.Component{
         <TextField 
           hintText="just choose option"
           type="text"
-          style={{ width: '90%' }}
           value={selectedOption === "default option" ? '' : selectedOption }
           onChange={this.handleInputChange}
         />

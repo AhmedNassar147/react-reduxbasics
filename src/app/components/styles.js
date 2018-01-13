@@ -1,5 +1,5 @@
 export const compStyle = {
-  maxWidth: '90%',
+  maxWidth: '60%',
   margin: 'auto',
   textAlign: 'center',
 }
@@ -7,8 +7,4 @@ export const compStyle = {
 export const header = {
   textAlign: 'center',
   backgroundColor: 'grey',
-};
-
-export const dropDownStyle = {
-  width: '100%',
 };

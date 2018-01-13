@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { CircularProgress } from 'material-ui';
 
+import { containerStyle } from './styles';
+import { options, users } from './data';
 import Right from '../components/right';
 import Left from '../components/left';
 import Middle from '../components/middle';
 import userAction from '../modules/actions/user';
 import optionsAction from '../modules/actions/options';
-import { options, users } from './data';
-import { containerStyle } from './styles';
 
 class App extends React.Component{
   componentWillMount(){
@@ -32,7 +33,12 @@ class App extends React.Component{
       optionId
     } = this.props;
 
-    if (load) return <div>loading....</div>
+    if (load) return(
+      <div style={{ textAlign: 'center', paddingTop: '7%' }}> 
+        <CircularProgress thickness={7} size={80} />
+        <h3>Loading...</h3>
+      </div>
+      );
 
     return(
       <div style={containerStyle}>
