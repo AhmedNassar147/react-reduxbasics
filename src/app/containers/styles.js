@@ -4,3 +4,8 @@ export const containerStyle = {
   alignContent: 'center',
 };
 
+export const loadProccess ={
+  textAlign: 'center', 
+  paddingTop: '7%', 
+};
+
