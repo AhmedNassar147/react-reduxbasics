@@ -3,12 +3,6 @@ export const users = [
   {id: 2 , name: "mohamed"},
   {id: 3 , name: "kareem"},
   {id: 4 , name: "eman"},
-  {id: 5 , name: "soha"},
-  {id: 6 , name: "nesma"},
-  {id: 7 , name: "mahmoud"},
-  {id: 8 , name: "baba"},
-  {id: 9 , name: "mama"},
-  {id: 10 , name: "mai"},
 ];
 
 export const options = [

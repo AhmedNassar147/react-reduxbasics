@@ -11,14 +11,14 @@ export default class Right extends React.Component{
   render(){
     const { currentDate, birthDate } = this.props;
     const birthDay = new Date(birthDate).getDate(); 
-    const birthMonth = (new Date(birthDate).getUTCMonth()) + 1; 
-    const birthYear = new Date(birthDate).getFullYear(); 
-    const currentDay = new Date(currentDate).getDate(); 
-    const currentMonth = (new Date(currentDate).getUTCMonth()) + 1; 
+    const birthMonth = (new Date(birthDate).getUTCMonth()) + 1;
+    const birthYear = new Date(birthDate).getFullYear();
+    const currentDay = new Date(currentDate).getDate();
+    const currentMonth = (new Date(currentDate).getUTCMonth()) + 1;
     const currentYear = new Date(currentDate).getFullYear();
-    const ageIndays = currentDay - birthDay; 
-    const ageInMonths = currentMonth - birthMonth; 
-    const ageInYears = currentYear - birthYear; 
+    const ageIndays = currentDay - birthDay;
+    const ageInMonths = currentMonth - birthMonth;
+    const ageInYears = currentYear - birthYear;
     return(
       <Paper style={compStyle}>
         <h2 style={header}>React test 3</h2>
@@ -28,14 +28,11 @@ export default class Right extends React.Component{
           onChange={this.handleChangeDateFrom}
         />
         <div>
-          {currentDate === 0 ? null : (
-            <p>Current date is: {new Date(currentDate).toLocaleDateString()}</p>
-          )}
-          {birthDate === 0 ? null : (
-            <p>Your Birth Date is : {new Date(birthDate).toLocaleDateString()}</p>
-          )}
+          
           {(birthDate > 0 && currentDate > 0) ? (
             <div>
+              <p>Current date is: {new Date(currentDate).toLocaleDateString()}</p>
+              <p>Your Birth Date is : {new Date(birthDate).toLocaleDateString()}</p>
               <p>you lived: {ageIndays} Days , {ageInMonths} months and {ageInYears} years</p>
             </div>
           ) : null}
